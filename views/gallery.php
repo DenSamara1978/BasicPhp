@@ -1,12 +1,3 @@
-<?php
-
-$gallery = "";
-foreach($images as $image) {
-    $gallery .= '<a rel="gallery" class="photo" href="photo.php?id=' . $image["id"] . '" target="_blank"><img src="' . $image["smallPath"] . '" alt="' . $image["name"] . '" /></a>';
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +9,9 @@ foreach($images as $image) {
     <div id="main">
 	    <div class="post_title"><h2>Моя галерея</h2></div>
 	    <div class="gallery">
-            <?= $gallery ?>
+            <?php foreach($images as $image) {
+                echo '<a rel="gallery" class="photo" href="photo.php?id=' . $image["id"] . '" target="_blank"><img src="' . $image["smallPath"] . '" alt="' . $image["name"] . '" /></a>';
+            } ?>
 	    </div>
     </div>
 </body>
